@@ -1,0 +1,39 @@
+{
+    "name": "weapp-upload",
+    "version": "1.0.0",
+    "description": "upload by miniprogram-ci",
+    "main": "index.js",
+    "bin": {
+        "applet-taro": "./bin/index.ts"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "upload": "node ./bin/index.js"
+    },
+    "files": [
+        "bin",
+        "lib"
+    ],
+    "author": {
+        "name": "xiao",
+        "email": "xd_working@163.com"
+    },
+    "keywords": [
+        "weapp-upload",
+        "miniprogram-ci",
+        "miniprogram",
+        "cli",
+        "ci",
+        "node",
+        "nodejs"
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "inquirer": "^8.2.1"
+    },
+    "devDependencies": {
+        "commander": "^9.4.0",
+        "dotenv": "^16.0.2",
+        "semver": "^7.3.7"
+    }
+}
