@@ -2,7 +2,6 @@ const path = require("path");
 const fs = require("fs");
 const { readFileSync, writeFileSync } = fs;
 const dotenv = require("dotenv"); // 读取.env文件
-//
 const process = require("process");
 const cwd = process.cwd;
 const cwdPath = cwd();
@@ -18,17 +17,18 @@ const updateVersion = require("./utils/get-version");
 const writeProjectConfig = (filePath, newConfig) => {
     const fileOption = { encoding: "utf-8" };
     const fileContent = readFileSync(filePath, fileOption);
-    let config = JSON.parse(fileContent.toString());
-    console.log("config", fileContent);
-    Object.assign(config, newConfig);
+    let config = JSON.stringify(fileContent);
+    let config_1 = JSON.parse(config);
+    console.log("config", config_1, fileContent);
+    // Object.assign(config, newConfig);
     // const appid = {
     //     development: 'wx989cad3a4dc96fb9',
     //     testing: 'wxe25528aac2acd617',
     //     production: 'wx612e638e8053d5c5'
     // };
     // config.appid = appid[process.env.NODE_ENV || 'development'];
-    let newStr = JSON.stringify(config, null, 2);
-    writeFileSync(filePath, newStr, fileOption);
+    // let newStr = JSON.stringify(config, null, 2);
+    // writeFileSync(filePath, newStr, fileOption);
 };
 
 const readFile = (filePath) => {
@@ -64,21 +64,22 @@ const loadWxconfig = async (configPath) => {
 };
 // 获取版本号 wxe25528aac2acd617
 const getVersion = async () => {
-    const { version } = await loadWxconfig("./../wx.config.js");
+    const { version, setting } = await loadWxconfig(
+        "./../../test/wx.config.js"
+    );
     const { appid } = await readFile(path.join(cwdPath, "project.config.json")); // appid
     const defaultDesc = await getUserDefaultDesc(cwdPath); // 描述
     const newVersion = await updateVersion(version); // 版本号
-    // console.log("版本更新成功", version);
+    console.log("版本更新成功", version);
     const { desc, robot } = await getDesc();
     // 写入appid和版本号;
-    writeProjectConfig(path.join(cwdPath, "wx.config.js"), {
+    writeProjectConfig(path.join(cwdPath, "../test/wx.config.js"), {
         appid,
         desc,
         version: newVersion,
         privateKeyPath: `./scripts/release/private.${appid}.key`
     });
 };
-getVersion();
 // 获取描述
 const getUploadDesc = () => {
     try {
@@ -93,4 +94,8 @@ const getUploadDesc = () => {
     }
 };
 
+// 项目构建
+const buildProject = () => {
+    // 获取
+};
 // 发布小程序

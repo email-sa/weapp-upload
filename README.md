@@ -3,6 +3,19 @@
 参考
 https://juejin.cn/post/6966119324478079007#heading-21
 
+
+# 使用
+`javascript 
+npm i weapp-cli
+
+
+`
+配置的目录结构
+- scripts
+-- upload
+--- wx.config.js
+--- .env
+
 ## 脚手架的功能
 
 1. 通过 applet-taro-cli create <name> 命令启动项目
