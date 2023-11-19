@@ -3,29 +3,30 @@
 // #! 符号是一个约定的标记，用于指定脚本的解释程序
 // Node CLI 应用入口文件必须要有这样的文件头
 // 如果是Linux 或者 macOS 系统下还需要修改此文件的读写权限为 755
-// 具体就是通过 chmod 755 cli.js 实现修改
 const program = require("commander");
+const { parseEnvFile } = require("./../lib/file");
+
 // const chalk = require("chalk"); // 优化文案样式
 // const figlet = require("figlet"); // 绘制 Logo [type]
 
 // 定义命令和参数
-program
-    // 定义命令和参数
-    .command("upload")
-    .description("upload a mini project")
-    .option("-s, --strict", "overwrite target directory if it exist")
-    .action((type, options) => {
-        console.log("type", type);
-        // 执行创建命令
-        const typeInfo = parseEnvFile();
-        if (["develop", "test", "production"].includes(type?.trim?.())) {
-            // 在 build 中执行创建任务
-            require("../lib/build")(type, options, typeInfo);
-        } else {
-            // 在 upload 中执行创建任务
-            require("../lib/upload")(type, options, typeInfo);
-        }
-    });
+// program
+//     // 定义命令和参数
+//     .command("upload")
+//     .description("upload a mini project")
+//     .option("-s, --strict", "overwrite target directory if it exist")
+//     .action((type, options) => {
+//         console.log("type", type);
+//         // 执行创建命令
+//         const typeInfo = parseEnvFile();
+//         if (["develop", "test", "production"].includes(type?.trim?.())) {
+//             // 在 build 中执行创建任务
+//             require("../lib/build")(type, typeInfo);
+//         } else {
+// 在 upload 中执行创建任务
+require("../lib/upload")("type", {});
+//     }
+// });
 
 // // 监听--help,优化help de 展示
 // program.on("--help", () => {

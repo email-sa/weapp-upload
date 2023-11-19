@@ -1,50 +1,51 @@
 {
-  "name": "mini-cli",
-  "version": "1.0.0",
-  "description": "upload by miniprogram-ci",
-  "main": "./lib/upload.js",
-  "bin": {
-    "mini-cli": "./bin/cli.js"
-  },
-  "scripts": {
-    "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "upload": "node ./lib/upload.js"
-  },
-  "files": [
-    "dist"
-  ],
-  "author": {
-    "name": "xiao",
-    "email": "xd_working@163.com"
-  },
-  "keywords": [
-    "weapp-upload",
-    "miniprogram-ci",
-    "miniprogram",
-    "cli",
-    "ci",
-    "node",
-    "nodejs"
-  ],
-  "license": "MIT",
-  "dependencies": {
-    "axios": "^0.27.2",
-    "child_process": "^1.0.2",
-    "commander": "^9.4.1",
-    "dotenv": "^16.0.2",
-    "fs-extra": "^10.1.0",
-    "inquirer": "^8.2.1",
-    "miniprogram-ci": "^1.8.35",
-    "ora": "^5.4.1",
-    "semver": "^7.3.7"
-  },
-  "devDependencies": {
-    "babel-loader": "^8.2.5",
-    "clean-webpack-plugin": "^4.0.0",
-    "node-polyfill-webpack-plugin": "^2.0.1",
-    "terser-webpack-plugin": "^5.3.6",
-    "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0"
-  }
+    "name": "mini-cli",
+    "version": "1.0.0",
+    "description": "upload by miniprogram-ci",
+    "main": "./lib/cli.js",
+    "bin": {
+        "mini-cli": "./bin/cli.js"
+    },
+    "scripts": {
+        "build": "webpack",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "upload": "node ./lib/upload.js",
+        "build-upload": "node ./bin/cli.js"
+    },
+    "files": [
+        "dist"
+    ],
+    "author": {
+        "name": "xiao",
+        "email": "xd_working@163.com"
+    },
+    "keywords": [
+        "weapp-upload",
+        "miniprogram-ci",
+        "miniprogram",
+        "cli",
+        "ci",
+        "node",
+        "nodejs"
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^0.27.2",
+        "child_process": "^1.0.2",
+        "commander": "^9.4.1",
+        "dotenv": "^16.0.2",
+        "fs-extra": "^10.1.0",
+        "inquirer": "^8.2.1",
+        "miniprogram-ci": "^1.8.35",
+        "ora": "^5.4.1",
+        "semver": "^7.3.7"
+    },
+    "devDependencies": {
+        "babel-loader": "^8.2.5",
+        "clean-webpack-plugin": "^4.0.0",
+        "node-polyfill-webpack-plugin": "^2.0.1",
+        "terser-webpack-plugin": "^5.3.6",
+        "webpack": "^5.74.0",
+        "webpack-cli": "^4.10.0"
+    }
 }
